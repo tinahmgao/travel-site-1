@@ -1,11 +1,12 @@
 .to-top {
-  display: none;
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transform: scale(1.1);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  cursor: auto;
 
   &--is-visible {
     opacity: 1;
-    display: block;
+    transform: scale(1);
   }
 
   a {
