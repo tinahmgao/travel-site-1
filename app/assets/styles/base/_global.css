@@ -18,7 +18,9 @@ img {
 
 a {
   color: $mainOrange;
+  text-decoration: none;
 }
+
 button:focus {
   outline: 0;
 }

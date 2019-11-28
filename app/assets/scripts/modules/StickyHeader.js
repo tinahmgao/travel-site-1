@@ -7,6 +7,7 @@ class StickyHeader {
     this.pageSections = document.querySelectorAll('.page-section')
     this.toTop = document.querySelector('.to-top')
     this.browserHeight = window.innerHeight
+    this.browserWidth = window.innerWidth
     this.previousScrollY = window.scrollY
     this.events()
   }
@@ -22,17 +23,31 @@ class StickyHeader {
         this.browserHeight = window.innerHeight
       }, 300)
     )
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        this.browserWidth = window.innerWidth
+      }, 300)
+    )
   }
 
   runOnScroll() {
     this.determineScrollDirection()
 
-    if (window.scrollY > 60) {
-      this.siteHeader.classList.add('site-header--dark')
-      this.toTop.classList.add('to-top--is-visible')
+    if (this.browserWidth > 800) {
+      if (window.scrollY > 60) {
+        this.siteHeader.classList.add('site-header--dark')
+        this.toTop.classList.add('to-top--is-visible')
+      } else {
+        this.siteHeader.classList.remove('site-header--dark')
+        this.toTop.classList.remove('to-top--is-visible')
+      }
     } else {
-      this.siteHeader.classList.remove('site-header--dark')
-      this.toTop.classList.remove('to-top--is-visible')
+      if (window.scrollY > 120) {
+        this.toTop.classList.add('to-top--is-visible')
+      } else {
+        this.toTop.classList.remove('to-top--is-visible')
+      }
     }
 
     this.pageSections.forEach(el => this.calcSection(el))

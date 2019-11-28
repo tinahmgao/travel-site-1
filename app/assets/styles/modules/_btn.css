@@ -19,12 +19,12 @@
   }
 
   &--circle {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     color: $mainBlue;
     border: 2px solid $mainBlue;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-weight: 700;
     font-size: 1.1rem;
     display: inline-flex;
@@ -37,7 +37,7 @@
 
   &--fixed-bottom-right {
     position: fixed;
-    bottom: 60px;
+    bottom: 20px;
     right: 20px;
   }
 }
